@@ -5,15 +5,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-// Helper function to get correct asset path for GitHub Pages
-const basePath = process.env.NODE_ENV === 'production' ? '/Mahagnani' : ''
-
+// Helper function to get correct asset path
+// Next.js basePath is automatically applied, so we just return the path as-is
 export function getAssetPath(path: string): string {
-  // If path already starts with http or https, return as is
-  if (path.startsWith('http://') || path.startsWith('https://')) {
-    return path
-  }
-  // Ensure path starts with /
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`
-  return `${basePath}${normalizedPath}`
+  return path
 }

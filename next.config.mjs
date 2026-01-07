@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production'
+
 const nextConfig = {
   output: 'export',
   typescript: {
@@ -7,9 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // For GitHub Pages - update this to your repo name
-  basePath: '/Mahagnani',
-  assetPrefix: '/Mahagnani/',
+  // For GitHub Pages - only apply basePath in production
+  basePath: isProd ? '/Mahagnani' : '',
+  assetPrefix: isProd ? '/Mahagnani/' : '',
   trailingSlash: true,
 }
 
