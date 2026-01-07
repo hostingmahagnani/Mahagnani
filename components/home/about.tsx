@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react"
+import { getAssetPath } from "@/lib/utils"
 
 export function About() {
   const points = [
@@ -17,21 +18,21 @@ export function About() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="relative overflow-hidden rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
-                  <img src="/student-learning-coding.jpg" alt="Learning" className="w-full h-full object-cover" />
+                  <img src={getAssetPath("/student-learning-coding.jpg")} alt="Learning" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="relative overflow-hidden rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
-                  <img src="/developer-working.png" alt="Working" className="w-full h-full object-cover" />
+                  <img src={getAssetPath("/developer-working.png")} alt="Working" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
               <div className="pt-8 space-y-4">
                 <div className="relative overflow-hidden rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
-                  <img src="/team-collaboration.png" alt="Team" className="w-full h-full object-cover" />
+                  <img src={getAssetPath("/team-collaboration.png")} alt="Team" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="relative overflow-hidden rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
-                  <img src="/classroom-setting.jpg" alt="Classroom" className="w-full h-full object-cover" />
+                  <img src={getAssetPath("/classroom-setting.jpg")} alt="Classroom" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>

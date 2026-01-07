@@ -3,6 +3,7 @@ import type { Course } from "@/lib/courses"
 import { Clock, BarChart, ArrowRight } from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { getAssetPath } from "@/lib/utils"
 
 export function CourseCard({ course }: { course: Course }) {
   return (
@@ -13,7 +14,7 @@ export function CourseCard({ course }: { course: Course }) {
       <CardHeader className="p-0 overflow-hidden rounded-t-lg relative">
         <div className="aspect-video relative overflow-hidden">
           <img
-            src={course.image || "/placeholder.svg"}
+            src={getAssetPath(course.image || "/placeholder.svg")}
             alt={course.title}
             className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700"
           />
