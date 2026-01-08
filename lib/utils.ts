@@ -5,8 +5,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-// Helper function to get correct asset path
-// Next.js basePath is automatically applied, so we just return the path as-is
+// Helper function to get correct asset path for GitHub Pages
+// In production, we need to add the basePath prefix manually for <img> tags
+// (Next.js Image component handles this automatically, but raw <img> tags don't)
 export function getAssetPath(path: string): string {
-  return path
+  const basePath = process.env.NODE_ENV === 'production' ? '/Mahagnani' : ''
+  return `${basePath}${path}`
 }
