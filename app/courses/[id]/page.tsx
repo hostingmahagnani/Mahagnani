@@ -1,6 +1,7 @@
 import { getCourseById, getAllCourses } from "@/lib/courses"
 import { notFound } from "next/navigation"
-import { CheckCircle2, Clock, BarChart, User, PlayCircle, Award, BookOpen, Star } from "lucide-react"
+import Link from "next/link"
+import { CheckCircle2, Clock, BarChart, User, PlayCircle, Award, BookOpen, Star, Calendar, Users, Video, ChevronRight, Home } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
@@ -39,14 +40,39 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-purple-500/10 to-transparent blur-3xl rounded-full animate-pulse-slower"></div>
         
         <div className="container mx-auto px-4 relative z-10">
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-2 text-sm mb-8 animate-fade-in-up" aria-label="Breadcrumb">
+            <Link 
+              href="/" 
+              className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Home"
+            >
+              <Home size={16} />
+              <span>Home</span>
+            </Link>
+            <ChevronRight size={16} className="text-muted-foreground" />
+            <Link 
+              href="/courses" 
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Courses
+            </Link>
+            <ChevronRight size={16} className="text-muted-foreground" />
+            <span className="text-foreground font-medium" aria-current="page">{course.title}</span>
+          </nav>
+          
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-6 animate-fade-in-up">
               <div className="flex flex-wrap gap-3">
+                <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-none px-3 py-1 font-bold transition-all duration-300 hover:scale-105 flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
+                  LIVE CLASSES
+                </Badge>
                 <Badge className="bg-gradient-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-primary text-white border-none px-3 py-1 font-bold transition-all duration-300 hover:scale-105">
                   {course.level}
                 </Badge>
-                <Badge variant="outline" className="text-primary border-primary/30 px-3 py-1 font-bold hover:bg-primary/10 transition-all duration-300 hover:scale-105">
-                  Best Seller
+                <Badge variant="outline" className="text-orange-600 border-orange-600/30 px-3 py-1 font-bold hover:bg-orange-600/10 transition-all duration-300 hover:scale-105">
+                  Starts in 10 Days
                 </Badge>
               </div>
 
@@ -56,22 +82,28 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                 </span>
               </h1>
 
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">{course.subtitle}</p>
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
+                {course.subtitle} Join live interactive classes with expert instructors and learn alongside a cohort of motivated peers.
+              </p>
 
               <div className="flex flex-wrap items-center gap-6 text-sm font-medium">
                 <div className="flex items-center gap-2">
                   <User size={18} className="text-primary" />
                   <span>
-                    Created by <span className="text-primary underline cursor-pointer">{course.instructor}</span>
+                    Taught by <span className="text-primary underline cursor-pointer">{course.instructor}</span>
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock size={18} className="text-primary" />
-                  <span>{course.duration}</span>
+                  <Calendar size={18} className="text-primary" />
+                  <span>Mon/Wed/Fri • 7-9 PM IST</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <BarChart size={18} className="text-primary" />
-                  <span>{course.level}</span>
+                  <Clock size={18} className="text-primary" />
+                  <span>{course.duration} live sessions</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users size={18} className="text-primary" />
+                  <span>Max 25 students</span>
                 </div>
               </div>
             </div>
@@ -79,33 +111,50 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             <div className="hidden lg:block animate-fade-in-up animation-delay-400">
               <div className="sticky top-24 bg-card/80 backdrop-blur-sm text-foreground rounded-xl shadow-2xl shadow-primary/20 overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-primary/30">
                 <div className="p-6 space-y-6">
+                  {/* Batch Info Alert */}
+                  <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 border border-orange-500/30 rounded-lg p-4 space-y-2">
+                    <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 font-bold text-sm">
+                      <Calendar size={16} />
+                      <span>Next Batch Starting Soon!</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Batch starts in 10 days • Only 8 seats remaining</p>
+                  </div>
+
                   <div className="space-y-2">
-                    <div className="text-3xl font-extrabold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">$84.99</div>
-                    <div className="text-sm text-muted-foreground line-through">$129.99 (35% off)</div>
+                    <div className="text-4xl font-extrabold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">₹1,500</div>
+                    <div className="text-sm text-muted-foreground">One-time payment • Lifetime recording access</div>
                   </div>
 
                   <div className="space-y-3">
                     <Button className="w-full h-12 text-lg font-bold shadow-lg shadow-primary/20 bg-gradient-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-primary transition-all duration-300 hover:scale-105">
-                      Start Learning Now
+                      Enroll Now
                     </Button>
                     <Button
                       variant="outline"
                       className="w-full h-12 text-lg font-bold border-2 border-primary text-primary hover:bg-primary/10 bg-transparent transition-all duration-300 hover:scale-105"
                     >
-                      Add to Wishlist
+                      Attend Free Demo
                     </Button>
                   </div>
 
-                  <div className="space-y-4 pt-4">
-                    <p className="text-sm font-bold">This course includes:</p>
+                  <div className="space-y-4 pt-4 border-t border-border">
+                    <p className="text-sm font-bold">This batch includes:</p>
                     <ul className="space-y-3 text-sm text-muted-foreground">
                       <li className="flex items-center gap-3">
+                        <Video size={16} className="text-primary" />
+                        <span>Live interactive classes (Mon/Wed/Fri)</span>
+                      </li>
+                      <li className="flex items-center gap-3">
                         <PlayCircle size={16} className="text-primary" />
-                        <span>32 hours on-demand video</span>
+                        <span>Lifetime access to recordings</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <Users size={16} className="text-primary" />
+                        <span>Small batch size (max 25 students)</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <BookOpen size={16} className="text-primary" />
-                        <span>15 downloadable resources</span>
+                        <span>Doubt clearing sessions</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <Award size={16} className="text-primary" />
@@ -153,12 +202,10 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
               </div>
 
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold">Course Content</h2>
-                <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                  <span>{course.modules.length} modules • 142 lectures • 32h 15m total length</span>
-                  <Button variant="link" className="text-primary font-bold p-0 hover:text-primary/80">
-                    Expand all sections
-                  </Button>
+                <h2 className="text-2xl font-bold">Live Class Schedule & Curriculum</h2>
+                <div className="flex flex-col gap-2 text-sm text-muted-foreground mb-4">
+                  <span>{course.modules.length} modules • {course.duration} of live instruction</span>
+                  <span>Classes: Mon/Wed/Fri 7-9 PM IST • Recordings available within 24 hours</span>
                 </div>
 
                 <Accordion type="single" collapsible className="w-full border border-border rounded-xl overflow-hidden shadow-lg">
@@ -172,7 +219,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                         <div className="flex items-center gap-3">
                           <span className="text-primary">{module.title}</span>
                           <span className="text-xs font-normal text-muted-foreground ml-2">
-                            {module.topics.length} topics • 45 min
+                            {module.topics.length} live sessions
                           </span>
                         </div>
                       </AccordionTrigger>
@@ -181,10 +228,10 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
                           {module.topics.map((topic, tIdx) => (
                             <li key={tIdx} className="flex items-center justify-between text-sm group cursor-pointer">
                               <div className="flex items-center gap-3">
-                                <PlayCircle size={16} className="text-muted-foreground group-hover:text-primary" />
+                                <Video size={16} className="text-muted-foreground group-hover:text-primary" />
                                 <span className="group-hover:text-primary transition-colors">{topic}</span>
                               </div>
-                              <span className="text-muted-foreground text-xs">Preview</span>
+                              <span className="text-muted-foreground text-xs">Live Session</span>
                             </li>
                           ))}
                         </ul>
@@ -230,8 +277,17 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
 
             {/* Mobile View Purchase Area */}
             <div className="lg:hidden space-y-6 pt-12 border-t border-border">
-              <div className="text-3xl font-extrabold text-primary">$84.99</div>
-              <Button className="w-full h-14 text-lg font-bold shadow-lg shadow-primary/20">Start Learning Now</Button>
+              <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 border border-orange-500/30 rounded-lg p-4 space-y-2 mb-4">
+                <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 font-bold text-sm">
+                  <Calendar size={16} />
+                  <span>Batch starts in 10 days • Only 8 seats left</span>
+                </div>
+              </div>
+              <div className="text-4xl font-extrabold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">₹1,500</div>
+              <div className="space-y-3">
+                <Button className="w-full h-14 text-lg font-bold shadow-lg shadow-primary/20 bg-gradient-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-primary transition-all duration-300 hover:scale-105">Enroll Now</Button>
+                <Button variant="outline" className="w-full h-14 text-lg font-bold border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300">Attend Free Demo</Button>
+              </div>
             </div>
           </div>
         </div>

@@ -30,6 +30,13 @@
   --chart-4: oklch(0.58 0.17 260);
   --chart-5: oklch(0.48 0.18 240);
   --radius: 0.5rem;
+  
+  /* Design System: Standardized Gradients */
+  --gradient-primary: linear-gradient(135deg, oklch(0.52 0.19 250), oklch(0.48 0.18 280));
+  --gradient-secondary: linear-gradient(135deg, oklch(0.48 0.18 280), oklch(0.45 0.20 260));
+  --gradient-accent: linear-gradient(135deg, oklch(0.65 0.20 40), oklch(0.60 0.22 350));
+  --gradient-live: linear-gradient(135deg, oklch(0.55 0.24 25), oklch(0.50 0.22 20));
+  --gradient-success: linear-gradient(135deg, oklch(0.55 0.20 145), oklch(0.50 0.18 150));
 }
 
 .dark {
@@ -105,6 +112,52 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Enhanced focus-visible styles for better keyboard navigation */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+  
+  /* Better focus for interactive elements */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+}
+
+/* Standardized Button Sizes - Design System */
+@layer components {
+  .btn-sm {
+    @apply h-9 px-4 text-sm;
+  }
+  
+  .btn-md {
+    @apply h-11 px-6 text-base;
+  }
+  
+  .btn-lg {
+    @apply h-14 px-10 text-lg;
+  }
+  
+  .btn-icon-sm {
+    @apply h-9 w-9 p-0;
+  }
+  
+  .btn-icon-md {
+    @apply h-11 w-11 p-0;
+  }
+  
+  .btn-icon-lg {
+    @apply h-14 w-14 p-0;
+  }
+  
+  /* Touch target minimum - WCAG 2.1 Success Criterion 2.5.5 */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
 }
 
 /* Updated smooth scroll styling */
@@ -112,9 +165,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Respect user's motion preferences - WCAG 2.1 Success Criterion 2.3.3 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Updated smooth scroll and luxury styling utilities */
 .glass-effect {
-  @apply bg-card/40 backdrop-blur-xl border border-primary/20;
+  @apply bg-card/40 backdrop-blur-md border border-primary/20;
 }
 
 .text-gradient {

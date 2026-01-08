@@ -1,41 +1,41 @@
-import { Shield, Target, Award, Users, BookOpen, Laptop } from "lucide-react"
+import { Shield, Target, Award, Users, BookOpen, Video } from "lucide-react"
 
 export function WhyChooseUs() {
   const features = [
     {
-      icon: <Laptop size={32} />,
-      title: "Real-time Projects",
-      description: "Learn by doing with our showcase of real-time projects that simulate industry work environments.",
+      icon: <Video size={32} />,
+      title: "Live Interactive Classes",
+      description: "Learn in real-time with expert instructors. Ask questions, get instant feedback, and collaborate with peers during live sessions on Mon/Wed/Fri.",
     },
     {
       icon: <Target size={32} />,
-      title: "Focused Curriculum",
+      title: "Small Batch Learning",
       description:
-        "Our courses are strictly focused on what industry demands, skipping the fluff and getting straight to the core skills.",
+        "We keep batches small (max 25 students) to ensure every learner gets personalized attention and all doubts are cleared during class.",
     },
     {
       icon: <Award size={32} />,
-      title: "Certified Excellence",
+      title: "Industry Expert Instructors",
       description:
-        "Earn industry-recognized certificates that showcase your mastery and help you stand out to top employers.",
+        "Learn from professionals with 10+ years of industry experience who bring real-world insights and practical knowledge to every session.",
     },
     {
       icon: <Users size={32} />,
-      title: "Community Support",
+      title: "Active Learning Community",
       description:
-        "Join a thriving community of peers and mentors who are always available to help you overcome challenges.",
+        "Join a supportive community of 10,000+ learners. Connect on Discord, share projects, and grow together with like-minded tech enthusiasts.",
     },
     {
       icon: <BookOpen size={32} />,
-      title: "Lifetime Access",
+      title: "Lifetime Recording Access",
       description:
-        "Once you enroll, you get lifetime access to the course materials, including all future updates and additions.",
+        "Can't attend a live class? No problem. Get lifetime access to all class recordings, code files, and resources even after batch completion.",
     },
     {
       icon: <Shield size={32} />,
-      title: "Trust & Reliability",
+      title: "Affordable & Transparent",
       description:
-        "With years of experience in technical training, we provide a secure and reliable platform for your growth.",
+        "Quality education at just ₹1,500 per course. No hidden fees, no subscriptions. Pay once and get lifetime access to recordings and updates.",
     },
   ]
 
@@ -50,11 +50,11 @@ export function WhyChooseUs() {
           <h2 className="text-primary font-bold uppercase tracking-widest text-sm animate-fade-in-up">Why Mahagnani</h2>
           <h3 className="text-3xl md:text-5xl font-bold leading-tight animate-fade-in-up animation-delay-200">
             <span className="bg-gradient-to-r from-foreground via-primary to-purple-600 bg-clip-text text-transparent">
-              Practical Learning for Real-World Success
+              Live Learning. Real Results.
             </span>
           </h3>
           <p className="text-muted-foreground text-lg animate-fade-in-up animation-delay-400">
-            Build your own application or product by learning from our industry experts and hands-on projects.
+            Experience the power of live instruction with small batches, expert teachers, and personalized feedback that helps you succeed faster.
           </p>
         </div>
 

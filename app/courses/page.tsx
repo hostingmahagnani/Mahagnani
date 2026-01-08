@@ -15,12 +15,11 @@ export default function CoursesPage() {
           <div className="max-w-3xl space-y-4 animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
               <span className="bg-gradient-to-r from-foreground via-primary to-purple-600 bg-clip-text text-transparent">
-                All Courses
+                Live Online Courses
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              Explore our comprehensive catalog of industry-leading tech courses. Master the skills you need to advance
-              your career in data science, AI, and cybersecurity.
+              Join live interactive classes with expert instructors. Learn Python, AI, Cybersecurity, and Web Development in small batches of 25 students. Next batch starts in 10 days!
             </p>
           </div>
         </div>

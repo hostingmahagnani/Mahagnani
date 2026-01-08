@@ -5,65 +5,56 @@ import { ArrowRight, Users, PlayCircle, Bot, Sparkles, Code, Zap, Brain } from "
 export function Hero() {
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-background via-primary/5 to-purple-500/10">
-      {/* Animated Mesh Gradient Background */}
-      <div className="absolute inset-0 -z-10">
-        {/* Main gradient orbs */}
-        <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-gradient-to-br from-primary/20 via-purple-500/15 to-blue-500/20 blur-[100px] rounded-full animate-pulse-slow" />
-        <div className="absolute bottom-[-20%] left-[-10%] w-[60%] h-[60%] bg-gradient-to-tr from-blue-500/15 via-cyan-500/10 to-primary/20 blur-[100px] rounded-full animate-pulse-slower" />
-        <div className="absolute top-[30%] left-[20%] w-[40%] h-[40%] bg-gradient-to-br from-pink-500/10 via-orange-500/5 to-yellow-500/10 blur-[80px] rounded-full animate-float" />
+      {/* Animated Mesh Gradient Background - Optimized */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        {/* Main gradient orbs - Reduced blur from 100px to 50px */}
+        <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-gradient-to-br from-primary/20 via-purple-500/15 to-blue-500/20 blur-[50px] rounded-full animate-pulse-slow" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[60%] h-[60%] bg-gradient-to-tr from-blue-500/15 via-cyan-500/10 to-primary/20 blur-[50px] rounded-full animate-pulse-slower" />
+        <div className="absolute top-[30%] left-[20%] w-[40%] h-[40%] bg-gradient-to-br from-pink-500/10 via-orange-500/5 to-yellow-500/10 blur-[40px] rounded-full animate-float" />
         
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
         
-        {/* Animated floating shapes */}
+        {/* Reduced floating shapes - Keep only 3 most visible */}
         <div className="absolute top-[15%] left-[10%] w-20 h-20 border border-primary/20 rounded-2xl rotate-12 animate-float opacity-60" />
         <div className="absolute top-[25%] right-[15%] w-16 h-16 border border-purple-500/20 rounded-full animate-float-up-down opacity-60" />
-        <div className="absolute bottom-[30%] left-[5%] w-12 h-12 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-lg rotate-45 animate-spin-slow opacity-40" />
         <div className="absolute bottom-[20%] right-[10%] w-24 h-24 border border-blue-500/20 rounded-3xl -rotate-12 animate-float opacity-50" />
-        <div className="absolute top-[60%] right-[25%] w-8 h-8 bg-gradient-to-br from-pink-500/20 to-orange-500/20 rounded-full animate-pulse-slow opacity-60" />
-        <div className="absolute top-[10%] left-[40%] w-6 h-6 bg-primary/20 rounded-full animate-bounce-subtle opacity-50" />
-        <div className="absolute bottom-[40%] left-[30%] w-10 h-10 border border-cyan-500/20 rounded-xl rotate-12 animate-float-up-down opacity-40" />
         
-        {/* Glowing dots */}
+        {/* Reduced glowing dots to 3 */}
         <div className="absolute top-[20%] left-[25%] w-2 h-2 bg-primary rounded-full animate-pulse shadow-lg shadow-primary/50" />
         <div className="absolute top-[40%] right-[20%] w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-200 shadow-lg shadow-purple-500/50" />
         <div className="absolute bottom-[35%] left-[15%] w-2 h-2 bg-blue-500 rounded-full animate-pulse animation-delay-400 shadow-lg shadow-blue-500/50" />
-        <div className="absolute top-[70%] right-[30%] w-2 h-2 bg-pink-500 rounded-full animate-pulse animation-delay-600 shadow-lg shadow-pink-500/50" />
-        <div className="absolute bottom-[25%] right-[40%] w-2 h-2 bg-cyan-500 rounded-full animate-pulse shadow-lg shadow-cyan-500/50" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8 animate-fade-in-up">
-            <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-              Mahagnani: Where{" "}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8 animate-fade-in-up">
+            <span className="text-foreground">
+              Master Tech Skills with{" "}
             </span>
-            <span className="bg-gradient-to-r from-primary via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient-x">
-              Knowledge
-            </span>
-            <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-              {" "}Begins
+            <span className="bg-gradient-to-r from-primary via-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Live Online Classes
             </span>
           </h1>
 
           <div className="flex flex-col gap-4 mb-10 max-w-2xl animate-fade-in-up animation-delay-200">
-            <div className="flex items-center justify-center gap-2 text-primary font-semibold bg-primary/10 px-4 py-2 rounded-full backdrop-blur-sm border border-primary/20 hover:bg-primary/20 transition-all duration-300 hover:scale-105">
-              <Bot size={20} className="animate-bounce-subtle" />
-              <span>Build an agent within a minute</span>
+            <div className="flex items-center justify-center gap-2 text-white font-semibold bg-gradient-to-r from-red-500 to-red-600 px-5 py-2.5 rounded-full backdrop-blur-sm border border-red-400/30 shadow-lg shadow-red-500/30 animate-pulse-subtle">
+              <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+              <span>Next Batch Starts in 10 Days - Limited Seats!</span>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Unlock your potential with expert-led tech courses and real-time projects.
+              Learn Python, AI, Cybersecurity & Web Development through interactive live classes with expert instructors. Small batches of 25 students max.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-up animation-delay-400">
             <Button asChild size="lg" className="h-14 px-10 text-lg font-semibold bg-gradient-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-primary transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/50">
               <Link href="/courses">
-                Get Started <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" size={20} />
+                View Live Courses <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" size={20} />
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg font-semibold bg-transparent hover:bg-primary/10 border-2 hover:border-primary transition-all duration-300 hover:scale-105">
-              <Link href="#contact">Book a Free Demo</Link>
+              <Link href="#contact">Attend Free Demo Class</Link>
             </Button>
           </div>
 
@@ -74,7 +65,7 @@ export function Hero() {
               </div>
               <div>
                 <div className="font-bold text-lg leading-none group-hover:text-primary transition-colors">10k+</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Learners</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Students Trained</div>
               </div>
             </div>
             <div className="flex items-center space-x-2 group cursor-pointer">
@@ -82,8 +73,8 @@ export function Hero() {
                 <PlayCircle className="text-purple-600 group-hover:text-white transition-colors duration-300" size={20} />
               </div>
               <div>
-                <div className="font-bold text-lg leading-none group-hover:text-purple-600 transition-colors">50+</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Courses</div>
+                <div className="font-bold text-lg leading-none group-hover:text-purple-600 transition-colors">200+</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Live Batches</div>
               </div>
             </div>
           </div>
@@ -96,8 +87,8 @@ export function Hero() {
             <Users size={20} />
           </div>
           <div>
-            <div className="font-bold text-sm bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">Join the Community</div>
-            <div className="text-xs text-muted-foreground">Interact with 500+ peers</div>
+            <div className="font-bold text-sm bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">Small Batch Learning</div>
+            <div className="text-xs text-muted-foreground">Max 25 students per batch</div>
           </div>
         </div>
       </div>
@@ -109,8 +100,8 @@ export function Hero() {
             <Sparkles size={20} />
           </div>
           <div>
-            <div className="font-bold text-sm bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">AI-Powered Learning</div>
-            <div className="text-xs text-muted-foreground">Smart personalized paths</div>
+            <div className="font-bold text-sm bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">Live Interactive Classes</div>
+            <div className="text-xs text-muted-foreground">Mon/Wed/Fri • 7-9 PM IST</div>
           </div>
         </div>
       </div>

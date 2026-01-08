@@ -5,7 +5,6 @@ import { WhyChooseUs } from "@/components/home/why-choose-us"
 import { ContactCTA } from "@/components/home/contact-cta"
 
 export default function Home() {
-  console.log("[v0] Rendering Home page")
   return (
     <div className="flex flex-col w-full">
       <Hero />
